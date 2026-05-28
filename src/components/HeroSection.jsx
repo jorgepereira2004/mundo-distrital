@@ -1,36 +1,16 @@
 import React from 'react';
 import { Calendar, User } from 'lucide-react';
+// Importamos o JSON (que agora tem ultimaHora e artigos)
+import dados from '../data/noticias.json';
 
 const HeroSection = () => {
-  const featuredNews = [
-    {
-      id: 1,
-      title: 'Sporting garante primeira divisão com épica remontada',
-      excerpt: 'Equipa de Alvalade cumpre objetivo após campanha eletrizante...',
-      category: 'Primeira Divisão',
-      image: 'https://picsum.photos/600/400?random=1',
-      author: 'João Silva',
-      date: '27 mai 2026'
-    },
-    {
-      id: 2,
-      title: 'Porto vence clássico em casa',
-      excerpt: 'Grande exibição no Estádio do Dragão...',
-      category: 'Divisão',
-      image: 'https://picsum.photos/400/250?random=2',
-      author: 'Maria Santos',
-      date: '26 mai 2026'
-    },
-    {
-      id: 3,
-      title: 'Braga confirma favoritismo',
-      excerpt: 'Equipa mineira segue sem derrotas...',
-      category: 'Divisão',
-      image: 'https://picsum.photos/400/250?random=3',
-      author: 'Pedro Costa',
-      date: '26 mai 2026'
-    }
-  ];
+  // Apontamos diretamente para a gaveta dos artigos
+  const featuredNews = dados.artigos;
+
+  // Proteção contra ecrãs brancos caso o JSON esteja vazio
+  if (!featuredNews || featuredNews.length === 0) {
+    return <div className="p-8 text-center">Nenhuma notícia encontrada.</div>;
+  }
 
   return (
     <section className="bg-gray-100 dark:bg-gray-950 py-8 lg:py-12 px-4 lg:px-8">
@@ -40,7 +20,7 @@ const HeroSection = () => {
         </h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Large Featured Card - Left */}
+          {/* Destaque Grande (Esquerda) - Lê a posição 0 do JSON */}
           <div className="lg:col-span-2 group cursor-pointer">
             <div className="relative h-96 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <img
@@ -72,7 +52,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Small Cards - Right */}
+          {/* Destaques Pequenos (Direita) - Lê as posições 1 e 2 do JSON */}
           <div className="flex flex-col space-y-6">
             {featuredNews.slice(1, 3).map((news) => (
               <div key={news.id} className="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden group cursor-pointer">
