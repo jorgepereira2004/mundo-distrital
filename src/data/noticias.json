@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "titulo": "Salgueiros vence dérbi",
+        "resumo": "Uma partida intensa no Bessa...",
+        "categoria": "AF Porto",
+        "imagem": "https://picsum.photos/400/250"
+    },
+    {
+        "id": 2,
+        "titulo": "Emblemas já à venda",
+        "resumo": "Nova coleção de emblemas históricos.",
+        "categoria": "Loja",
+        "imagem": "https://picsum.photos/400/250"
+    }
+]
