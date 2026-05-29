@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header = () => {
+const Header = ({ onNavigate, onLogoClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Início', href: '#' },
-    { label: 'Notícias', href: '#' },
-    { label: 'Modalidades', href: '#' },
-    { label: 'Loja', href: '#' },
-    { label: 'Contactos', href: '#' }
+    { label: 'Início', key: 'home' },
+    { label: 'Notícias', key: 'home' },
+    { label: 'Modalidades', key: 'modalidades' },
+    { label: 'Loja', key: 'loja' },
+    { label: 'Contactos', key: 'contactos' }
   ];
 
   return (
@@ -18,7 +18,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
+            <h1 onClick={() => onLogoClick && onLogoClick()} className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white cursor-pointer">
               <span className="text-red-600">MUNDO</span>
               <span className="text-gray-900 dark:text-white"> DISTRITAL</span>
             </h1>
@@ -30,7 +30,8 @@ const Header = () => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href={item.href}
+                href="#"
+                onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(item.key); }}
                 className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium text-sm"
               >
                 {item.label}
@@ -53,7 +54,8 @@ const Header = () => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href={item.href}
+                href="#"
+                onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(item.key); setIsMenuOpen(false); }}
                 className="block text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium"
               >
                 {item.label}

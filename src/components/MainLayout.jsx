@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, User, ShoppingCart } from 'lucide-react';
 import dados from '../data/noticias.json';
 
-const MainLayout = () => {
+const MainLayout = ({ onAbrirNoticia }) => {
   const newsArticles = dados.artigos.slice(3);
   
   // Vamos buscar o primeiro produto que esteja marcado como destaque
@@ -22,6 +22,7 @@ const MainLayout = () => {
             {newsArticles.map((article) => (
               <article
                 key={article.id}
+                onClick={() => onAbrirNoticia && onAbrirNoticia(article)}
                 className="bg-white dark:bg-gray-900 rounded-lg border border-gray-800 shadow-lg hover:shadow-lg hover:border-red-600 transition-all duration-300 overflow-hidden group cursor-pointer"
               >
                 <div className="relative h-48 overflow-hidden">

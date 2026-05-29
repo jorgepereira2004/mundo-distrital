@@ -3,7 +3,7 @@ import { Calendar, User } from 'lucide-react';
 // Importamos o JSON (que agora tem ultimaHora e artigos)
 import dados from '../data/noticias.json';
 
-const HeroSection = () => {
+const HeroSection = ({ onAbrirNoticia }) => {
   // Apontamos diretamente para a gaveta dos artigos
   const featuredNews = dados.artigos;
 
@@ -21,7 +21,7 @@ const HeroSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Destaque Grande (Esquerda) - Lê a posição 0 do JSON */}
-          <div className="lg:col-span-2 group cursor-pointer">
+          <div className="lg:col-span-2 group cursor-pointer" onClick={() => onAbrirNoticia && onAbrirNoticia(featuredNews[0])}>
             <div className="relative h-96 overflow-hidden rounded-lg border border-gray-800 shadow-lg hover:shadow-xl hover:border-red-600 transition-all duration-300">
               <img
                 src={featuredNews[0].image}
@@ -55,7 +55,7 @@ const HeroSection = () => {
           {/* Destaques Pequenos (Direita) - Lê as posições 1 e 2 do JSON */}
           <div className="flex flex-col space-y-6">
             {featuredNews.slice(1, 3).map((news) => (
-              <div key={news.id} className="bg-white dark:bg-gray-900 rounded-lg border border-gray-800 shadow-lg hover:shadow-lg hover:border-red-600 transition-all duration-300 overflow-hidden group cursor-pointer">
+              <div key={news.id} onClick={() => onAbrirNoticia && onAbrirNoticia(news)} className="bg-white dark:bg-gray-900 rounded-lg border border-gray-800 shadow-lg hover:shadow-lg hover:border-red-600 transition-all duration-300 overflow-hidden group cursor-pointer">
                 <div className="relative h-40 overflow-hidden">
                   <img
                     src={news.image}
