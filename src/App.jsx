@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import MainLayout from './components/MainLayout';
 import Footer from './components/Footer';
 import Noticia from './pages/Noticia'; // Importamos a nova página
+import Noticias from './pages/Noticias'; // Página de listagem com filtros
 import './App.css';
 
 const App = () => {
@@ -28,14 +29,20 @@ const App = () => {
   };
 
   const handleNavigate = (key) => {
-    // For now all navigation items that show lists route to home
     if (key === 'home') {
       handleVoltarHome();
-    } else {
-      // Placeholder: extend routing later
-      handleVoltarHome();
-      console.log('Navigate to:', key);
+      return;
     }
+
+    if (key === 'noticias') {
+      setVistaAtual('noticias');
+      setArtigoSelecionado(null);
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    // Fallback: for other keys just log for now
+    console.log('Navigate to:', key);
   };
 
   return (
@@ -56,6 +63,10 @@ const App = () => {
 
         {vistaAtual === 'noticia' && (
           <Noticia artigo={artigoSelecionado} onVoltar={handleVoltarHome} />
+        )}
+
+        {vistaAtual === 'noticias' && (
+          <Noticias onAbrirNoticia={handleAbrirNoticia} />
         )}
       </main>
 

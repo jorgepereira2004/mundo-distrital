@@ -6,7 +6,7 @@ const Header = ({ onNavigate, onLogoClick }) => {
 
   const navItems = [
     { label: 'Início', key: 'home' },
-    { label: 'Notícias', key: 'home' },
+    { label: 'Notícias', key: 'noticias' },
     { label: 'Modalidades', key: 'modalidades' },
     { label: 'Loja', key: 'loja' },
     { label: 'Contactos', key: 'contactos' }
