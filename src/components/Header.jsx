@@ -5,11 +5,11 @@ const Header = ({ onNavigate, onLogoClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Início', key: 'home' },
-    { label: 'Notícias', key: 'noticias' },
-    { label: 'Modalidades', key: 'modalidades' },
-    { label: 'Loja', key: 'loja' },
-    { label: 'Contactos', key: 'contactos' }
+    { label: 'Início', key: 'home', href: '/' },
+    { label: 'Notícias', key: 'noticias', href: '/noticias' },
+    { label: 'Modalidades', key: 'modalidades', href: '/modalidades' },
+    { label: 'Loja', key: 'loja', href: '#' },
+    { label: 'Contactos', key: 'contactos', href: '#' }
   ];
 
   return (
@@ -30,7 +30,7 @@ const Header = ({ onNavigate, onLogoClick }) => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href="#"
+                href={item.href}
                 onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(item.key); }}
                 className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium text-sm"
               >
@@ -54,7 +54,7 @@ const Header = ({ onNavigate, onLogoClick }) => {
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href="#"
+                href={item.href}
                 onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(item.key); setIsMenuOpen(false); }}
                 className="block text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium"
               >

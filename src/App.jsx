@@ -1,31 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import TopBar from './components/TopBar';
 import Header from './components/Header';
 import BreakingNews from './components/BreakingNews';
 import HeroSection from './components/HeroSection';
 import MainLayout from './components/MainLayout';
 import Footer from './components/Footer';
-import Noticia from './pages/Noticia'; // Importamos a nova página
-import Noticias from './pages/Noticias'; // Página de listagem com filtros
+import Noticia from './pages/Noticia';
+import Noticias from './pages/Noticias';
+import Modalidades from './pages/Modalidades';
+import dados from './data/noticias.json';
 import './App.css';
 
-const App = () => {
-  // Estados que controlam a "navegação"
-  const [vistaAtual, setVistaAtual] = useState('home');
-  const [artigoSelecionado, setArtigoSelecionado] = useState(null);
+const getRouteFromPath = () => {
+  const path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
 
-  // Função para abrir a notícia
-  const handleAbrirNoticia = (artigo) => {
+  if (path.startsWith('/noticia/')) {
+    const id = path.split('/')[2];
+    return { vista: 'noticia', artigoId: id };
+  }
+
+  if (path === '/noticias') return { vista: 'noticias', artigoId: null };
+  if (path === '/modalidades') return { vista: 'modalidades', artigoId: null };
+
+  return { vista: 'home', artigoId: null };
+};
+
+const App = () => {
+  const artigos = useMemo(() => dados.artigos || [], []);
+
+  const resolveArtigo = (id) => artigos.find((item) => String(item.id) === String(id)) || null;
+
+  const [vistaAtual, setVistaAtual] = useState(() => {
+    if (typeof window === 'undefined') return 'home';
+    return getRouteFromPath().vista;
+  });
+  const [artigoSelecionado, setArtigoSelecionado] = useState(() => {
+    if (typeof window === 'undefined') return null;
+    const { artigoId } = getRouteFromPath();
+    return resolveArtigo(artigoId);
+  });
+
+  useEffect(() => {
+    const handleNavigation = () => {
+      const { vista, artigoId } = getRouteFromPath();
+      setVistaAtual(vista);
+      setArtigoSelecionado(artigoId ? resolveArtigo(artigoId) : null);
+    };
+
+    handleNavigation();
+    window.addEventListener('popstate', handleNavigation);
+
+    return () => window.removeEventListener('popstate', handleNavigation);
+  }, [artigos]);
+
+  const updateRoute = (nextVista, artigo = null) => {
+    setVistaAtual(nextVista);
     setArtigoSelecionado(artigo);
-    setVistaAtual('noticia');
-    window.scrollTo(0, 0); // Faz scroll para o topo quando muda de página
+
+    const path = nextVista === 'home'
+      ? '/'
+      : nextVista === 'noticias'
+        ? '/noticias'
+        : nextVista === 'modalidades'
+          ? '/modalidades'
+          : nextVista === 'noticia' && artigo
+            ? `/noticia/${artigo.id}`
+            : '/';
+
+    window.history.pushState(null, '', path);
+    window.scrollTo(0, 0);
   };
 
-  // Função para voltar à home
+  const handleAbrirNoticia = (artigo) => {
+    updateRoute('noticia', artigo);
+  };
+
   const handleVoltarHome = () => {
-    setVistaAtual('home');
-    setArtigoSelecionado(null);
-    window.scrollTo(0, 0);
+    updateRoute('home');
   };
 
   const handleNavigate = (key) => {
@@ -35,13 +86,15 @@ const App = () => {
     }
 
     if (key === 'noticias') {
-      setVistaAtual('noticias');
-      setArtigoSelecionado(null);
-      window.scrollTo(0, 0);
+      updateRoute('noticias');
       return;
     }
 
-    // Fallback: for other keys just log for now
+    if (key === 'modalidades') {
+      updateRoute('modalidades');
+      return;
+    }
+
     console.log('Navigate to:', key);
   };
 
@@ -67,6 +120,10 @@ const App = () => {
 
         {vistaAtual === 'noticias' && (
           <Noticias onAbrirNoticia={handleAbrirNoticia} />
+        )}
+
+        {vistaAtual === 'modalidades' && (
+          <Modalidades />
         )}
       </main>
 

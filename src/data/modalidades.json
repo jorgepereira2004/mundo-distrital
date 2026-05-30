@@ -1,0 +1,266 @@
+[
+    {
+        "id": 1,
+        "name": "Futebol Masculino",
+        "description": "Classificações, confronto direto e próximos jogos da principal competição distrital.",
+        "badge": "Ao Vivo",
+        "icon": "Shield",
+        "variant": "table",
+        "footerLabel": "Classificação",
+        "accent": "from-emerald-400/20 via-emerald-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Porto FC",
+                "pts": 34
+            },
+            {
+                "pos": 2,
+                "team": "Braga SC",
+                "pts": 30
+            },
+            {
+                "pos": 3,
+                "team": "Viseu United",
+                "pts": 27
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Futebol Feminino",
+        "description": "Resultados recentes e evolução das equipas femininas no campeonato distrital.",
+        "badge": "Popular",
+        "icon": "Shield",
+        "variant": "result",
+        "footerLabel": "Último resultado",
+        "lastResult": {
+            "score": "2-1",
+            "opponent": "Leões FC",
+            "label": "Último jogo"
+        },
+        "accent": "from-rose-400/20 via-pink-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Aves Ladies",
+                "pts": 32
+            },
+            {
+                "pos": 2,
+                "team": "Leões FC",
+                "pts": 29
+            },
+            {
+                "pos": 3,
+                "team": "Douro Girls",
+                "pts": 25
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Futsal Masculino",
+        "description": "Estatísticas rápidas, jogos decisivos e destaque para os líderes da tabela.",
+        "badge": "Novo",
+        "icon": "Swords",
+        "variant": "next",
+        "footerLabel": "Próximo jogo",
+        "nextMatch": {
+            "date": "Sáb. 20:30",
+            "opponent": "Tondela 5",
+            "venue": "Pavilhão Municipal"
+        },
+        "accent": "from-cyan-400/20 via-sky-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Caldas Futsal",
+                "pts": 31
+            },
+            {
+                "pos": 2,
+                "team": "Tondela 5",
+                "pts": 28
+            },
+            {
+                "pos": 3,
+                "team": "Norte Azul",
+                "pts": 24
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Futsal Feminino",
+        "description": "Acompanhe a dinâmica do futsal feminino com resultados e rankings atualizados.",
+        "badge": "Ao Vivo",
+        "icon": "Sparkles",
+        "variant": "stats",
+        "footerLabel": "Estatísticas rápidas",
+        "stats": [
+            {
+                "label": "Vitórias",
+                "value": "12"
+            },
+            {
+                "label": "Empates",
+                "value": "3"
+            },
+            {
+                "label": "Golos",
+                "value": "41"
+            }
+        ],
+        "accent": "from-violet-400/20 via-fuchsia-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Lume FC",
+                "pts": 29
+            },
+            {
+                "pos": 2,
+                "team": "Coroa Girls",
+                "pts": 26
+            },
+            {
+                "pos": 3,
+                "team": "Ria Verde",
+                "pts": 23
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Handball Masculino",
+        "description": "Resumo das classificações e confronto direto em jornadas de grande impacto.",
+        "badge": "Popular",
+        "icon": "BadgeCheck",
+        "variant": "table",
+        "footerLabel": "Mini classificação",
+        "accent": "from-amber-400/20 via-yellow-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Matos HC",
+                "pts": 33
+            },
+            {
+                "pos": 2,
+                "team": "Salgueiros",
+                "pts": 30
+            },
+            {
+                "pos": 3,
+                "team": "Lousada HB",
+                "pts": 27
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Handball Feminino",
+        "description": "Últimos resultados, estatísticas e projeções das melhores equipas femininas.",
+        "badge": "Novo",
+        "icon": "BadgeHelp",
+        "variant": "result",
+        "footerLabel": "Último resultado",
+        "lastResult": {
+            "score": "27-24",
+            "opponent": "Douro Hand",
+            "label": "Último jogo"
+        },
+        "accent": "from-indigo-400/20 via-blue-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Douro Hand",
+                "pts": 31
+            },
+            {
+                "pos": 2,
+                "team": "Mar Azul",
+                "pts": 28
+            },
+            {
+                "pos": 3,
+                "team": "Ribeira RH",
+                "pts": 24
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Boxe",
+        "description": "Calendário, resultados e destaques dos atletas com maior impacto da região.",
+        "badge": "Ao Vivo",
+        "icon": "Box",
+        "variant": "next",
+        "footerLabel": "Próximo combate",
+        "nextMatch": {
+            "date": "Dom. 18:00",
+            "opponent": "Vale Fighters",
+            "venue": "Arena Norte"
+        },
+        "accent": "from-red-400/20 via-orange-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Norte Boxing",
+                "pts": 28
+            },
+            {
+                "pos": 2,
+                "team": "Vale Fighters",
+                "pts": 24
+            },
+            {
+                "pos": 3,
+                "team": "Douro Elite",
+                "pts": 21
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "MMA",
+        "description": "Painel de eventos, estatísticas e próximos combates para os fãs do desporto de combate.",
+        "badge": "Popular",
+        "icon": "Swords",
+        "variant": "stats",
+        "footerLabel": "Estatísticas rápidas",
+        "stats": [
+            {
+                "label": "Vitórias",
+                "value": "9"
+            },
+            {
+                "label": "KO",
+                "value": "5"
+            },
+            {
+                "label": "Último round",
+                "value": "3º"
+            }
+        ],
+        "accent": "from-purple-400/20 via-violet-500/10 to-slate-900",
+        "table": [
+            {
+                "pos": 1,
+                "team": "Fight Hub",
+                "pts": 30
+            },
+            {
+                "pos": 2,
+                "team": "Storm Team",
+                "pts": 27
+            },
+            {
+                "pos": 3,
+                "team": "Vale MMA",
+                "pts": 24
+            }
+        ]
+    }
+]
