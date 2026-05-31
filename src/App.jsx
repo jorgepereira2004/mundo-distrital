@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import TopBar from './components/TopBar';
 import Header from './components/Header';
 import BreakingNews from './components/BreakingNews';
@@ -8,6 +8,9 @@ import Footer from './components/Footer';
 import Noticia from './pages/Noticia';
 import Noticias from './pages/Noticias';
 import Modalidades from './pages/Modalidades';
+import Loja from './pages/Loja';
+import CartDrawer from './components/CartSidebar';
+import { CartProvider, useCart } from './contexts/CartContext';
 import dados from './data/noticias.json';
 import './App.css';
 
@@ -21,19 +24,24 @@ const getRouteFromPath = () => {
 
   if (path === '/noticias') return { vista: 'noticias', artigoId: null };
   if (path === '/modalidades') return { vista: 'modalidades', artigoId: null };
+  if (path === '/loja') return { vista: 'loja', artigoId: null };
 
   return { vista: 'home', artigoId: null };
 };
 
-const App = () => {
+const AppContent = () => {
+  const { contarItems } = useCart();
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   const artigos = useMemo(() => dados.artigos || [], []);
 
-  const resolveArtigo = (id) => artigos.find((item) => String(item.id) === String(id)) || null;
+  const resolveArtigo = useCallback((id) => artigos.find((item) => String(item.id) === String(id)) || null, [artigos]);
 
   const [vistaAtual, setVistaAtual] = useState(() => {
     if (typeof window === 'undefined') return 'home';
     return getRouteFromPath().vista;
   });
+
   const [artigoSelecionado, setArtigoSelecionado] = useState(() => {
     if (typeof window === 'undefined') return null;
     const { artigoId } = getRouteFromPath();
@@ -51,7 +59,7 @@ const App = () => {
     window.addEventListener('popstate', handleNavigation);
 
     return () => window.removeEventListener('popstate', handleNavigation);
-  }, [artigos]);
+  }, [artigos, resolveArtigo]);
 
   const updateRoute = (nextVista, artigo = null) => {
     setVistaAtual(nextVista);
@@ -95,14 +103,23 @@ const App = () => {
       return;
     }
 
+    if (key === 'loja') {
+      updateRoute('loja');
+      return;
+    }
+
     console.log('Navigate to:', key);
   };
 
   return (
     <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
       <TopBar />
-      {/* Header receives navigation callbacks */}
-      <Header onNavigate={handleNavigate} onLogoClick={handleVoltarHome} />
+      <Header 
+        onNavigate={handleNavigate} 
+        onLogoClick={handleVoltarHome}
+        cartItemCount={contarItems()}
+        onCartClick={() => setIsCartOpen(!isCartOpen)}
+      />
       <BreakingNews />
       
       {/* RENDERIZAÇÃO CONDICIONAL */}
@@ -125,11 +142,24 @@ const App = () => {
         {vistaAtual === 'modalidades' && (
           <Modalidades />
         )}
+
+        {vistaAtual === 'loja' && (
+          <Loja onCartOpen={() => setIsCartOpen(true)} />
+        )}
       </main>
 
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <Footer />
     </div>
   );
 };
+
+function App() {
+  return (
+    <CartProvider>
+      <AppContent />
+    </CartProvider>
+  );
+}
 
 export default App;

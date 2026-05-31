@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 
-const Header = ({ onNavigate, onLogoClick }) => {
+const Header = ({ onNavigate, onLogoClick, cartItemCount = 0, onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -39,13 +39,29 @@ const Header = ({ onNavigate, onLogoClick }) => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-gray-700 dark:text-gray-300 hover:text-red-600"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right Actions */}
+          <div className="flex items-center gap-4">
+            {/* Cart Icon */}
+            <button
+              onClick={onCartClick}
+              className="relative inline-flex items-center justify-center rounded-lg p-2.5 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+            >
+              <ShoppingCart size={20} />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 inline-flex items-center justify-center rounded-full bg-red-600 h-5 w-5 text-xs font-bold text-white">
+                  {cartItemCount}
+                </span>
+              )}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden text-gray-700 dark:text-gray-300 hover:text-red-600"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

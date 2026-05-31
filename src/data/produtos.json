@@ -1,0 +1,70 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Emblema Oficial SC Coimbrões",
+            "descricao": "Emblema bordado oficial com qualidade premium. Ideal para colecionadores.",
+            "precoAtual": "19.99",
+            "precoAntigo": "29.99",
+            "imagem": "https://picsum.photos/400/400?random=10",
+            "categoria": "Emblemas",
+            "emDestaque": true,
+            "stock": 15
+        },
+        {
+            "id": 2,
+            "nome": "Cachecol Distrital AF Porto",
+            "descricao": "Cachecol de lã de alta qualidade com as cores da associação.",
+            "precoAtual": "14.50",
+            "precoAntigo": "18.00",
+            "imagem": "https://picsum.photos/400/400?random=11",
+            "categoria": "Acessórios",
+            "emDestaque": false,
+            "stock": 3
+        },
+        {
+            "id": 3,
+            "nome": "Camisola Treino Vila Meã",
+            "descricao": "Equipamento oficial de treino da época 2026/27. Material respirável.",
+            "precoAtual": "35.00",
+            "precoAntigo": "45.00",
+            "imagem": "https://picsum.photos/400/400?random=12",
+            "categoria": "Equipamento",
+            "emDestaque": false,
+            "stock": 8
+        },
+        {
+            "id": 4,
+            "nome": "Galhardete Histórico Salgueiros",
+            "descricao": "Galhardete em tecido com as cores tradicionais. Coleção limitada.",
+            "precoAtual": "24.99",
+            "precoAntigo": "34.99",
+            "imagem": "https://picsum.photos/400/400?random=13",
+            "categoria": "Emblemas",
+            "emDestaque": true,
+            "stock": 12
+        },
+        {
+            "id": 5,
+            "nome": "Boné Ajustável Distrital",
+            "descricao": "Boné de algodão 100% com fecho ajustável. Cores disponíveis: preto e cinzento.",
+            "precoAtual": "12.00",
+            "precoAntigo": "16.00",
+            "imagem": "https://picsum.photos/400/400?random=14",
+            "categoria": "Acessórios",
+            "emDestaque": false,
+            "stock": 0
+        },
+        {
+            "id": 6,
+            "nome": "Meia Oficial Desportiva",
+            "descricao": "Meia desportiva de qualidade premium com almofada. Par.",
+            "precoAtual": "8.50",
+            "precoAntigo": "12.00",
+            "imagem": "https://picsum.photos/400/400?random=15",
+            "categoria": "Equipamento",
+            "emDestaque": false,
+            "stock": 25
+        }
+    ]
+}
