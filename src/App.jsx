@@ -9,6 +9,7 @@ import Noticia from './pages/Noticia';
 import Noticias from './pages/Noticias';
 import Modalidades from './pages/Modalidades';
 import Loja from './pages/Loja';
+import Contactos from './components/Contactos';
 import CartDrawer from './components/CartSidebar';
 import { CartProvider, useCart } from './contexts/CartContext';
 import dados from './data/noticias.json';
@@ -25,6 +26,7 @@ const getRouteFromPath = () => {
   if (path === '/noticias') return { vista: 'noticias', artigoId: null };
   if (path === '/modalidades') return { vista: 'modalidades', artigoId: null };
   if (path === '/loja') return { vista: 'loja', artigoId: null };
+  if (path === '/contactos') return { vista: 'contactos', artigoId: null };
 
   return { vista: 'home', artigoId: null };
 };
@@ -71,9 +73,13 @@ const AppContent = () => {
         ? '/noticias'
         : nextVista === 'modalidades'
           ? '/modalidades'
-          : nextVista === 'noticia' && artigo
-            ? `/noticia/${artigo.id}`
-            : '/';
+          : nextVista === 'loja'
+            ? '/loja'
+            : nextVista === 'contactos'
+              ? '/contactos'
+              : nextVista === 'noticia' && artigo
+                ? `/noticia/${artigo.id}`
+                : '/';
 
     window.history.pushState(null, '', path);
     window.scrollTo(0, 0);
@@ -105,6 +111,11 @@ const AppContent = () => {
 
     if (key === 'loja') {
       updateRoute('loja');
+      return;
+    }
+
+    if (key === 'contactos') {
+      updateRoute('contactos');
       return;
     }
 
@@ -145,6 +156,10 @@ const AppContent = () => {
 
         {vistaAtual === 'loja' && (
           <Loja onCartOpen={() => setIsCartOpen(true)} />
+        )}
+
+        {vistaAtual === 'contactos' && (
+          <Contactos />
         )}
       </main>
 

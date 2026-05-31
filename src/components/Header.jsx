@@ -8,8 +8,8 @@ const Header = ({ onNavigate, onLogoClick, cartItemCount = 0, onCartClick }) => 
     { label: 'Início', key: 'home', href: '/' },
     { label: 'Notícias', key: 'noticias', href: '/noticias' },
     { label: 'Modalidades', key: 'modalidades', href: '/modalidades' },
-    { label: 'Loja', key: 'loja', href: '#' },
-    { label: 'Contactos', key: 'contactos', href: '#' }
+    { label: 'Loja', key: 'loja', href: '/loja' },
+    { label: 'Contactos', key: 'contactos', href: '/contactos' }
   ];
 
   return (
