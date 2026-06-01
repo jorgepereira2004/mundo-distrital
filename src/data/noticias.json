@@ -10,10 +10,10 @@
     "artigos": [
         {
             "id": 1,
-            "title": "Salgueiros vence dérbi contra o Boavista B na Divisão de Elite",
+            "title": "ISC Sobreirense vence dérbi dérbi contra oSC Nun’Álvares na Divisão de Elite",
             "excerpt": "Uma partida intensa em Vidal Pinheiro decidida nos minutos finais com um golo solitário...",
             "category": "AF Porto",
-            "image": "https://picsum.photos/600/400?random=1",
+            "image": "/src/assets/Sobreira.png",
             "author": "Jorge Pereira",
             "date": "28 mai 2026"
         },
@@ -22,17 +22,17 @@
             "title": "Emblemas históricos já se encontram à venda na loja online",
             "excerpt": "Nova coleção de galhardetes e emblemas oficiais.",
             "category": "Loja",
-            "image": "https://picsum.photos/400/250?random=2",
+            "image": "/src/assets/Emblemas.png",
             "author": "Mundo Distrital",
             "date": "27 mai 2026"
         },
         {
             "id": 3,
-            "title": "Vila Meã reforça plantel com três contratações de peso",
+            "title": "Rebordosa reforça plantel com três contratações de peso",
             "excerpt": "Direção do clube aposta forte na subida de divisão e garante reforços para o meio-campo.",
             "category": "Mercado",
-            "image": "https://picsum.photos/400/250?random=3",
-            "author": "António Silva",
+            "image": "/src/assets/Rebordosa.jpg",
+            "author": "Tiago Monteiro",
             "date": "26 mai 2026"
         },
         {
@@ -40,7 +40,7 @@
             "title": "Revisão das regras distritais: o que muda na próxima época",
             "excerpt": "A Associação introduz novas regulamentações para melhorar a qualidade do jogo e arbitragem.",
             "category": "Regulamentos",
-            "image": "https://picsum.photos/400/250?random=4",
+            "image": "/src/assets/Regulamentos.png",
             "author": "João Silva",
             "date": "25 mai 2026"
         },
@@ -49,7 +49,7 @@
             "title": "Campeonato distrital: calendário divulgado",
             "excerpt": "Confira as datas e horários das principais jornadas da próxima época que prometem estádios cheios.",
             "category": "Calendário",
-            "image": "https://picsum.photos/400/250?random=5",
+            "image": "/src/assets/Calendario.png",
             "author": "Maria Santos",
             "date": "24 mai 2026"
         },
@@ -58,7 +58,7 @@
             "title": "Formação em destaque: Sub-19 arrancam em agosto",
             "excerpt": "Escalões mais jovens terão competição própria a partir do próximo mês com novos moldes competitivos.",
             "category": "Formação",
-            "image": "https://picsum.photos/400/250?random=6",
+            "image": "/src/assets/Formacao.png",
             "author": "Pedro Costa",
             "date": "23 mai 2026"
         }
@@ -70,7 +70,7 @@
             "descricao": "Emblema bordado oficial com qualidade premium. Ideal para colecionadores.",
             "precoAtual": "19.99",
             "precoAntigo": "29.99",
-            "imagem": "https://picsum.photos/250/200?random=10",
+            "imagem": "/src/assets/Coimbroes.png",
             "emDestaque": true
         }
     ]

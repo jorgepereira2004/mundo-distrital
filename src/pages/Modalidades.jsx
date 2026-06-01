@@ -49,6 +49,8 @@ const Modalidades = () => (
       })}
     </div>
 
+    {/* Estatísticas Globais - Oculto temporariamente */}
+    {false && (
     <section className="mt-10 rounded-[1.75rem] border border-slate-800 bg-slate-950/95 p-8 shadow-2xl shadow-black/40">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
@@ -67,7 +69,10 @@ const Modalidades = () => (
         ))}
       </div>
     </section>
+    )}
 
+    {/* CTA Final - Oculto temporariamente */}
+    {false && (
     <section className="mt-10 rounded-[1.75rem] border border-slate-800 bg-slate-950/95 p-8 shadow-2xl shadow-black/40">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
@@ -78,6 +83,7 @@ const Modalidades = () => (
         <button className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-700">Ver Competições</button>
       </div>
     </section>
+    )}
   </section>
 );
 

@@ -6,7 +6,7 @@
             "descricao": "Emblema bordado oficial com qualidade premium. Ideal para colecionadores.",
             "precoAtual": "19.99",
             "precoAntigo": "29.99",
-            "imagem": "https://picsum.photos/400/400?random=10",
+            "imagem": "/src/assets/Coimbroes.png",
             "categoria": "Emblemas",
             "emDestaque": true,
             "stock": 15
@@ -17,20 +17,20 @@
             "descricao": "Cachecol de lã de alta qualidade com as cores da associação.",
             "precoAtual": "14.50",
             "precoAntigo": "18.00",
-            "imagem": "https://picsum.photos/400/400?random=11",
+            "imagem": "/src/assets/AF_Porto.png",
             "categoria": "Acessórios",
             "emDestaque": false,
             "stock": 3
         },
         {
             "id": 3,
-            "nome": "Camisola Treino Vila Meã",
+            "nome": "Camisola Treino USC Paredes",
             "descricao": "Equipamento oficial de treino da época 2026/27. Material respirável.",
             "precoAtual": "35.00",
             "precoAntigo": "45.00",
-            "imagem": "https://picsum.photos/400/400?random=12",
+            "imagem": "/src/assets/Paredes.png",
             "categoria": "Equipamento",
-            "emDestaque": false,
+            "emDestaque": true,
             "stock": 8
         },
         {
@@ -39,7 +39,7 @@
             "descricao": "Galhardete em tecido com as cores tradicionais. Coleção limitada.",
             "precoAtual": "24.99",
             "precoAntigo": "34.99",
-            "imagem": "https://picsum.photos/400/400?random=13",
+            "imagem": "/src/assets/Salguerios.png",
             "categoria": "Emblemas",
             "emDestaque": true,
             "stock": 12
@@ -50,7 +50,7 @@
             "descricao": "Boné de algodão 100% com fecho ajustável. Cores disponíveis: preto e cinzento.",
             "precoAtual": "12.00",
             "precoAntigo": "16.00",
-            "imagem": "https://picsum.photos/400/400?random=14",
+            "imagem": "/src/assets/Bone.png",
             "categoria": "Acessórios",
             "emDestaque": false,
             "stock": 0
@@ -61,7 +61,7 @@
             "descricao": "Meia desportiva de qualidade premium com almofada. Par.",
             "precoAtual": "8.50",
             "precoAntigo": "12.00",
-            "imagem": "https://picsum.photos/400/400?random=15",
+            "imagem": "/src/assets/Meia_Desportiva.png",
             "categoria": "Equipamento",
             "emDestaque": false,
             "stock": 25

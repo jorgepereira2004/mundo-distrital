@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { ShoppingCart, Zap } from 'lucide-react';
+import { HiOutlineShoppingBag } from 'react-icons/hi2';
+import { BsCartPlus } from 'react-icons/bs';
 import { useCart } from '../contexts/CartContext';
 import { StockBadge } from './Badges';
 
@@ -42,13 +43,13 @@ const ProductCard = ({ produto }) => {
   const desconto = ((parseFloat(produto.precoAntigo) - parseFloat(produto.precoAtual)) / parseFloat(produto.precoAntigo) * 100).toFixed(0);
 
   return (
-    <div className="group overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg transition hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-red-500/5">
+    <div className={`${isOutOfStock ? 'cursor-not-allowed' : 'group hover:-translate-y-1 hover:shadow-xl'} overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg transition dark:hover:shadow-red-500/5`}>
       {/* Imagem com badge de desconto */}
       <div className="relative overflow-hidden bg-gray-100 dark:bg-gray-800 h-64">
         <img
           src={produto.imagem}
           alt={produto.nome}
-          className="h-full w-full object-cover object-center transition group-hover:scale-110"
+          className={`h-full w-full object-cover object-center transition ${isOutOfStock ? '' : 'group-hover:scale-110'}`}
         />
         {produto.precoAntigo !== produto.precoAtual && (
           <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -96,17 +97,17 @@ const ProductCard = ({ produto }) => {
           <button
             onClick={handleAdicionarCarrinho}
             disabled={isOutOfStock}
-            className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-gray-100 dark:bg-gray-800 px-4 py-3 text-sm font-semibold text-gray-900 dark:text-white transition ${isOutOfStock ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 dark:hover:bg-gray-700'}`}
+            className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-gray-100 dark:bg-gray-800 px-4 py-3 text-sm font-semibold text-gray-900 dark:text-white transition ${isOutOfStock ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'hover:bg-gray-200 dark:hover:bg-gray-700'}`}
           >
-            <ShoppingCart size={18} />
+            <BsCartPlus size={18} />
             Carrinho
           </button>
           <button
             onClick={handleComprarJa}
             disabled={isOutOfStock}
-            className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-3 text-sm font-semibold text-white transition ${isOutOfStock ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-700'}`}
+            className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-3 text-sm font-semibold text-white transition ${isOutOfStock ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'hover:bg-red-700'}`}
           >
-            <Zap size={18} />
+            <HiOutlineShoppingBag size={18} />
             Comprar Já
           </button>
         </div>
